@@ -1,0 +1,9 @@
+/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
+
+repositories {
+    maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
+}
+
+dependencies {
+    implementation group: 'com.zopim.android', name: 'sdk', version: '1.4.5'
+}
