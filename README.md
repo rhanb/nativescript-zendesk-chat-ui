@@ -73,9 +73,9 @@ export enum PreChatDataRequirement {
 }
 ```
 
-## Customisation
+## Customization
 
-For customisation, please refer to the iOS and [Android](https://developer.zendesk.com/embeddables/docs/android-chat-sdk/customization) documentation.
+For customization, please refer to the [iOS](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/customization) and [Android](https://developer.zendesk.com/embeddables/docs/android-chat-sdk/customization) documentation.
 
 ## License
 
