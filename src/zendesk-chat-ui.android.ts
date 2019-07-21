@@ -47,59 +47,57 @@ export class ZendeskChatUi {
   }
 
   public static startChat(sessionConfig?: ChatConfig) {
-    const {
-      department,
-      tags,
-      preChatDataRequirements
-    } = sessionConfig;
+    const nativeSessionConfig = new SessionConfig();
 
-    const nativeSessionConfig =  new SessionConfig();
+    if (!!sessionConfig) {
+      const { department, tags, preChatDataRequirements } = sessionConfig;
 
-    if (!!department) {
-      nativeSessionConfig.department(department);
-    }
-
-    if (!!tags && tags.length > 0) {
-      const nativeTags = new java.util.ArrayList<string>();
-      for (const t in tags) {
-        nativeTags.add(t);
-      }
-      nativeSessionConfig.tags(nativeTags.toArray());
-    }
-
-    if (!!preChatDataRequirements) {
-      let nativePreChatForm = new PreChatForm.Builder();
-      if (!!preChatDataRequirements.department) {
-        nativePreChatForm = nativePreChatForm.department(
-          nativePreChatFormField[preChatDataRequirements.department]
-        );
+      if (!!department) {
+        nativeSessionConfig.department(department);
       }
 
-      if (!!preChatDataRequirements.email) {
-        nativePreChatForm = nativePreChatForm.email(
-          nativePreChatFormField[preChatDataRequirements.email]
-        );
+      if (!!tags && tags.length > 0) {
+        const nativeTags = new java.util.ArrayList<string>();
+        for (const t in tags) {
+          nativeTags.add(t);
+        }
+        nativeSessionConfig.tags(nativeTags.toArray());
       }
 
-      if (!!preChatDataRequirements.message) {
-        nativePreChatForm = nativePreChatForm.message(
-          nativePreChatFormField[preChatDataRequirements.message]
-        );
-      }
+      if (!!preChatDataRequirements) {
+        let nativePreChatForm = new PreChatForm.Builder();
+        if (!!preChatDataRequirements.department) {
+          nativePreChatForm = nativePreChatForm.department(
+            nativePreChatFormField[preChatDataRequirements.department]
+          );
+        }
 
-      if (!!preChatDataRequirements.name) {
-        nativePreChatForm = nativePreChatForm.name(
-          nativePreChatFormField[preChatDataRequirements.name]
-        );
-      }
+        if (!!preChatDataRequirements.email) {
+          nativePreChatForm = nativePreChatForm.email(
+            nativePreChatFormField[preChatDataRequirements.email]
+          );
+        }
 
-      if (!!preChatDataRequirements.phone) {
-        nativePreChatForm = nativePreChatForm.phoneNumber(
-          nativePreChatFormField[preChatDataRequirements.phone]
-        );
-      }
+        if (!!preChatDataRequirements.message) {
+          nativePreChatForm = nativePreChatForm.message(
+            nativePreChatFormField[preChatDataRequirements.message]
+          );
+        }
 
-      nativeSessionConfig.preChatForm(nativePreChatForm.build());
+        if (!!preChatDataRequirements.name) {
+          nativePreChatForm = nativePreChatForm.name(
+            nativePreChatFormField[preChatDataRequirements.name]
+          );
+        }
+
+        if (!!preChatDataRequirements.phone) {
+          nativePreChatForm = nativePreChatForm.phoneNumber(
+            nativePreChatFormField[preChatDataRequirements.phone]
+          );
+        }
+
+        nativeSessionConfig.preChatForm(nativePreChatForm.build());
+      }
     }
 
     ZopimChatActivity.startActivity(
