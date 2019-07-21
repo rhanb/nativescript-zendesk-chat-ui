@@ -6,7 +6,8 @@
         <Label class="action-bar-title" text="Home"></Label>
     </ActionBar>
 
-    <GridLayout>
+    <GridLayout rows="auto">
         <!-- Add your page content here -->
+        <Button row="0" text="Start chat" tap="startChat" textWrap="true" />
     </GridLayout>
 </Page>
