@@ -27,6 +27,8 @@ export function onNavigatingTo(args: NavigatedData) {
         note: "A super nice note"
     };
 
+    ZendeskChatUi.trackEvent('App started');
+
     page.bindingContext = new HomeViewModel();
 }
 
