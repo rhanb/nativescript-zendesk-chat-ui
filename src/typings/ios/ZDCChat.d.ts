@@ -743,7 +743,7 @@ declare class ZDCChatView extends UIView implements UINavigationControllerDelega
 	viewForZoomingInScrollView(scrollView: UIScrollView): UIView;
 }
 
-declare class ZDCChatViewController extends ZDUViewController implements ZDCChatUIController, ZDCInsetProvider {
+declare class ZDCChatViewController implements ZDCChatUIController, ZDCInsetProvider {
 
 	static alloc(): ZDCChatViewController; // inherited from NSObject
 
